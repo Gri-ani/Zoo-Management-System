@@ -1,0 +1,298 @@
+﻿COMPILATION STEPS
+
+
+HOME_FOLDER = src
+All the commands should be run on the terminal in the HOME_FOLDER unless otherwise specified.
+Compilation Step:
+1)mvn clean
+2)mvn compile
+3)mvn package
+4) For <name of the functionality>: java jar <assignment2.jar> <class-name> <args>
+//5) For <name of the functionality>: java jar <assignment2.jar> <class-name> <args>
+//6) For <name of the functionality>: java jar <assignment2.jar> <class-name> <args>
+
+
+
+
+
+
+Assumptions:
+
+
+1)I have hardcored 2 animals lion and deer(used concept of polymorphism in this).
+2)In the SpecialDeal function i have assumed that the deal is for that exact no. of attractions only
+3) To enter as admin you need to use username: “admin” and
+Password: “admin123”.
+3) While adding an Attraction it also asks for basicticket price. To change this price later it you need to go to Schedule Events.
+4) You need to write the category you want to use for applying code(ie category name is the discount code)
+5) You can’t Remove Animal if it’s less than 2 of that type in Zoo.
+6) You can visit Animals for free.
+7)for buy tickets -visitor cannot buy tickets if he has premium memmbership(free visit to attractions)
+8) you need to write the Id of the Attraction to uniquely
+identify the Attractions
+9)I have considered the count of visitors based on the registered no. of visitors.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ZOO CLASS
+This class implements the AttractionManager and AnimalManager interfaces, which means that it can manage both attractions and animals.
+The Zoo class has a number of methods for adding, removing, and viewing attractions, animals, visitors, discounts, and special deals. It also has methods for providing and viewing feedback.
+The Zoo class has a number of methods for adding, removing, and viewing attractions, animals, visitors, discounts, and special deals. It also has methods for providing and viewing feedback.
+the zoo class is responsible for managing a wide range of tasks, including:
+* Animal handling: This includes adding, removing, and viewing animals, as well as modifying animal information such as their descriptions.
+* The methods addAnimalMammal(), addAnimalReptile(), and addAnimalAmphibian() are used to add different types of animals to the Zoo's list of animals. This is possible because polymorphism allows the Zoo class to accept objects of type Animal as parameters to the addAnimal() methods.
+* Attraction management: This includes adding, removing, and viewing attractions, as well as exploring attractions and viewing their details.
+* Discounts and special deals: This includes adding, removing, and modifying discounts and special deals, as well as calculating discounts for visitors based on their eligibility.
+* Visitor feedback: This includes collecting and viewing feedback from visitors.(provide feedback)
+* You can also view feedback
+
+
+* Counting animals of a specific type: This can be useful for tracking population trends or identifying conservation priorities.
+* Searching for animals and attractions: This can help visitors to easily find what they are looking for.
+
+
+
+
+Admin class
+The Admin class represents an administrator of the zoo management system. It has the following attributes:
+* username: The administrator's username.
+* password: The administrator's password.
+* attractionList: A list of all the attractions in the zoo.
+The Admin class also has the following methods:
+* addAttraction(attraction attraction, zoo zoo): Adds an attraction to the zoo.
+* removeAttraction(attraction attraction, zoo zoo): Removes an attraction from the zoo.
+* openAttraction(attraction attraction): Opens an attraction in the zoo.
+* closeAttraction(attraction attraction): Closes an attraction in the zoo.
+* setTicketPrice(attraction attraction, double price): Sets the ticket price for an attraction in the zoo.
+* Feedback(zoo zoo): Collects feedback from users about the zoo.
+* viewattractions(zoo zoo): Views the list of attractions in the zoo.
+The Admin class implements the useractions interface, which defines the following methods:
+* Feedback(zoo zoo): Collects feedback from users.
+* viewattractions(zoo zoo): Views the list of attractions in the zoo
+
+
+
+
+Visitor class
+
+
+The Visitor class represents a visitor to the zoo. It has the following attributes:
+* name: The visitor's name.
+* age: The visitor's age.
+* phone: The visitor's phone number.
+* balance: The visitor's balance in the zoo.
+* email: The visitor's email address.
+* password: The visitor's password.
+* membership: The visitor's membership type (Basic or Premium).
+* ticketList: A list of tickets purchased by the visitor.
+The Visitor class also has the following methods:
+* purchaseMembership(String membershipType): Purchases a membership for the visitor.
+* hasTicketForAttraction(String attractionName): Checks if the visitor has a ticket for the specified attraction.
+* removeTicket(String attractionName): Removes a ticket for the specified attraction from the visitor's ticket list.
+* toString(): Returns a string representation of the visitor.
+* Feedback(zoo zoo): Collects feedback from the visitor.
+* viewattractions(zoo zoo): Views the list of attractions in the zoo.
+The Visitor class implements the useractions interface, which defines the following methods:
+* Feedback(zoo zoo): Collects feedback from the user.
+* viewattractions(zoo zoo): Views the list of attractions in the zoo.
+Ticket class
+The Ticket class represents a ticket purchased by a visitor to the zoo. It has the following attributes-
+* nooftickets: The number of tickets purchased of a particular attraction.
+* attractionname: The name of the attraction for which the ticket is purchased.
+* price: The price of the ticket.
+The Ticket class also has the following methods:
+* getAttractionname(): Returns the name of the attraction for which the ticket is purchased.
+* setAttractionname(String attractionname): Sets the name of the attraction for which the ticket is purchased.
+* getPrice(): Returns the price of the ticket.
+* setPrice(double price): Sets the price of the ticket.
+* getNooftickets(): Returns the number of tickets purchased.
+* setNooftickets(int nooftickets): Sets the number of tickets purchased.
+
+
+
+
+
+
+
+
+
+
+
+
+SpecialDeal class
+Assumption- i have assumed that if that special deal will only be applied while buying tickets for the exact no. of tickets for the attraction as are there for special deal are present.
+The SpecialDeal class represents a special deal that the zoo offers to visitors. It has the following attributes:
+* noOfattractions: The number of attractions that the visitor must visit in order to qualify for the special deal.
+* discount: The percentage discount that the visitor receives on their ticket price if they qualify for the special deal.
+The SpecialDeal class also has the following methods:
+* getNoOfattractions(): Returns the number of attractions that the visitor must visit in order to qualify for the special deal.
+* setNoOfattractions(int noOfattractions): Sets the number of attractions that the visitor must visit in order to qualify for the special deal.
+* getDiscount(): Returns the percentage discount that the visitor receives on their ticket price if they qualify for the special deal.
+* setDiscount(int discount): Sets the percentage discount that the visitor receives on their ticket price if they qualify for the special deal.
+
+
+
+
+
+
+
+
+Revenue class
+This class is used to calculate the final revenue to be shown during visitor stats.
+It has 1 parameter revenue.
+And 2 functions addamt (double amt) and subtractamt(double amt) to calculate the add and subtract from the revenue parameter.
+Revenue class is initialized in the main class of the program.
+Feedback class
+Has 2 parameters visitorname and description .
+These are asked for if visitor wants to add feedback 
+And this is what is used for displaying the feedback.
+discount class
+
+
+Has 2 parameters category and percentage and functions to get and set these.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attraction class
+The attraction class represents an attraction at the zoo. It has the following attributes:
+* id: The unique ID of the attraction.
+* type: The type of attraction (e.g., safari experience, botanical garden, dinosaur show).
+* isOpen: A boolean value indicating whether the attraction is open.
+* description: A description of the attraction.
+* ticketPrice: The ticket price for the attraction.
+* countOfVisitors: The number of visitors who have visited the attraction.
+The attraction class also has the following methods:
+* getType(): Returns the type of attraction.
+* setType(String type): Sets the type of attraction.
+* getDescription(): Returns the description of the attraction.
+* setDescription(String description): Sets the description of the attraction.
+* getTicketPrice(): Returns the ticket price for the attraction.
+* setTicketPrice(double ticketPrice): Sets the ticket price for the attraction.
+* getCountOfVisitors(): Returns the number of visitors who have visited the attraction.
+* setCountOfVisitors(int count): Sets the number of visitors who have visited the attraction.
+The attraction class implements the Details2 interface, which defines the following methods:
+* getType(): Returns the type of the object.
+* setType(String type): Sets the type of the object.
+* getDescription(): Returns the description of the object.
+* setDescription(String description): Sets the description of the object.
+The attraction class is used to represent the attractions at the zoo. It is used by the Zoo class to manage the zoo's attractions.
+
+
+
+
+Animal class
+
+
+The code you have provided defines an interface called Details and an abstract class called Animalclass. The Details interface defines two methods: getType() and setDescription(). The Animalclass abstract class inherits from the Details interface andhas-
+* setName()
+* getName()
+* getSound()
+* setSound()
+* toString()
+The Animal class is a concrete implementation of the Animalclass abstract class. It has the following fields:
+* name
+* type
+* description
+* sound
+The Animal class also has getters and setters for all of its fields.
+The Details interface and the Animalclass abstract class are used to define the common properties and behaviors of all animals. The Animal class provides a concrete implementation of these common properties and behaviors.
+
+
+
+
+
+
+
+
+Classes TypeMammal, TypeAmphibian, TypeReptile
+The TypeMammal, TypeAmphibian, and TypeReptile classes are concrete implementations of the Animal class. They are used to represent the different types of animals in the zoo (mammals, amphibians, and reptiles).
+Each of these classes has a constructor that takes the following parameters:
+* name: The name of the animal.
+* description: A description of the animal.
+* sound: The sound that the animal makes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Main class
+
+
+The main class has various methods for implementations of the program.
+Like adminactions-to implement the action of admin
+
+
+  The admin method further has methods to implement these-
+1. Manage Attractions-to add remove modify attractions
+2. Manage Animals-to manage animals
+3. Schedule Events
+4. Set Discounts
+5. Set Special Deal
+6. View Visitor Stats
+7. View Feedback
+
+
+And visitoractions-to implement the actions of the visitor.
+
+
+The visitor method further uses methods to implement these actions;
+1. Explorezoo
+2. BuyMembership
+3. BuyTickets
+4. ViewDiscounts
+5. ViewSpecialDeals
+6. VisitAnimals
+7. VisitAttractions
+8. LeaveFeedback
+
+
+
+
+
+
+interfaces , abstract classes and polymorphism and object class concepts all have been used.
